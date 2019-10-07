@@ -37,7 +37,7 @@ class Login extends Component {
 
   handleLogin(event) {
     try{
-      fetch('http://localhost:8080/o/authentication/v1.0/login', {
+      fetch('/o/authentication/v1.0/login', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -50,9 +50,15 @@ class Login extends Component {
       })
       .then(response => response.json())
       .then(data => {
-        console.log(data)
-        localStorage.setItem("user", JSON.stringify(data));
-        this.props.history.push(`/dashboard`);
+        if(data.access_token){
+          let access_token = data.access_token;
+          console.log(access_token)
+          localStorage.setItem("access_token", JSON.stringify(access_token));
+          this.props.history.push(`/dashboard`);
+        }else{
+          alert("Something went wrong. Please try")
+        }
+        
       }).catch((err)=>{
         alert('Login failed. Please try again.')
       })
