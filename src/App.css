@@ -185,8 +185,16 @@ input.error {
     justify-content: space-between;
     width: 100%;
     min-height: 60px;
-    background: #b3d7ff;
+    /* background: #b3d7ff; */
     top: 0;
+}
+
+.agia1-theme{
+  background:#c8bbef;
+}
+
+.agia2-theme{
+  background: #b3d7ff;
 }
 
 .footer-text{
@@ -195,14 +203,18 @@ input.error {
 }
 
 .global-content-ctnr{
-  border: 1px solid #b3d7ff;
   flex:1;
   margin-right: 2%;
   border-radius: 5px;
+  border: 1px solid #b3d7ff;
 }
 
 .domain-content-ctnr{
   border: 1px solid #b3d7ff;
   flex:1;
   border-radius: 5px;
+}
+
+.content-ctnr dl dt {
+  display: none;
 }

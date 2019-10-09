@@ -6,7 +6,7 @@ class Dashboard extends Component {
     super(props);
 
     this.state = {
-      content: ""
+      isDomain: false
     };
   }
 
@@ -20,7 +20,8 @@ class Dashboard extends Component {
 
   getDomainContent(id, article) {
     return new Promise((res, rej) => {
-      let access_token = "Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0";
+      let access_token_string = localStorage.getItem('access_token')
+      let access_token = "Bearer " + JSON.parse(access_token_string);
       fetch(ENDPOINTS.base + "/o/webcontent/v1.0/getContentByName", {
         method: "POST",
         headers: {
@@ -45,7 +46,8 @@ class Dashboard extends Component {
 
   getGlobalContent(id, article) {
     return new Promise((res, rej) => {
-      let access_token = "Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0";
+      let access_token_string = localStorage.getItem('access_token')
+      let access_token = "Bearer " + JSON.parse(access_token_string);
       fetch(ENDPOINTS.base + "/o/webcontent/v1.0/getContentByName", {
         method: "POST",
         headers: {
@@ -98,15 +100,16 @@ class Dashboard extends Component {
 
   render() {
     let imagePath =
-      window.location.href.search("emerge") == -1
+      window.location.href.search("agia1") == -1
         ? "https://d1ic4altzx8ueg.cloudfront.net/niche-builder/5c8299df36bc4.png"
         : "https://quote.emergencyassistltd.co.uk/assets/imgs/Logo-trans.png";
 
-    let var1 = "<div>hello</div>";
+
     return (
+     
       <div>
         <header>
-          <div className="header-container">
+          <div className={`header-container ${window.location.href.search("agia1") == -1 ? 'agia2-theme' : 'agia1-theme'}`}>
             <img className="header-logo" src={imagePath}></img>
             <a
               onClick={this.logout}
@@ -119,16 +122,16 @@ class Dashboard extends Component {
         </header>
         <div className="content-ctnr">
           <div className="global-content-ctnr">
-            <h3>This is Global Cotent</h3>
+            <h3>This is Wildcard Content</h3>
             <div id="global-content"></div>
           </div>
           <div className="domain-content-ctnr">
-            <h3>This is Domain Cotent</h3>
+            <h3>Contact Us</h3>
             <div id="domain-content"></div>
           </div>
         </div>
         <footer>
-          <div className="footer-ctnr">
+          <div  className={`footer-ctnr ${window.location.href.search("agia1") == -1 ? 'agia2-theme' : 'agia1-theme'}`} >
             <p className="footer-text">Copyright 2019</p>
           </div>
         </footer>
