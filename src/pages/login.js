@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from "react";
 import { NavLink } from "react-router-dom";
+import { ENDPOINTS } from "../config";
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -37,7 +38,7 @@ class Login extends Component {
 
   handleLogin(event) {
     try{
-      fetch('/o/authentication/v1.0/login', {
+      fetch(ENDPOINTS.base + "/o/authentication/v1.0/login", {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
