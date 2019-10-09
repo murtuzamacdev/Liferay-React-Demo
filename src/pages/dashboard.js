@@ -12,8 +12,8 @@ class Dashboard extends Component {
 
   async componentDidMount() {
     let idObject = await this.getId();
-    let globalContent = await this.getGlobalContent(idObject.GlobalGroupId, "global-web-content");
-    let domainContent = await this.getDomainContent(idObject.DomainGroupId, "domain-contact");
+    let globalContent = await this.getGlobalContent(idObject.globalGroupId, "global-web-content");
+    let domainContent = await this.getDomainContent(idObject.domainGroupId, "domain-contact");
     document.getElementById("global-content").innerHTML = globalContent.content;
     document.getElementById("domain-content").innerHTML = domainContent.content || "";
   }
@@ -117,7 +117,7 @@ class Dashboard extends Component {
             </a>
           </div>
         </header>
-        <div class="content-ctnr">
+        <div className="content-ctnr">
           <div className="global-content-ctnr">
             <h3>This is Global Cotent</h3>
             <div id="global-content"></div>
