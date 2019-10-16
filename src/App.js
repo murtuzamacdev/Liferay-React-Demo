@@ -8,7 +8,7 @@ import Dashboard from "./pages/dashboard";
 function App() {
   return (
     <div className="App">
-    <Router basename={'/liferay-react-demo'}>
+    <Router basename={'/'}>
       <Route
         exact
         path="/"
