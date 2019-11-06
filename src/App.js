@@ -4,7 +4,7 @@ import './App.css';
 import { HashRouter as Router, Route, Link, NavLink } from "react-router-dom";
 import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
- 
+  
 function App() {
   return (
     <div className="App">
